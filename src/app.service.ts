@@ -9,7 +9,7 @@ export class AppService {
     this.client.events
       .create({
         event_name: 'Test event',
-        created_at: new Date().getTime(),
+        created_at: Math.floor(new Date().getTime() / 1000), // Unix timestamp
         user_id: '248',
         metadata: { type: 'foo', content: 'Something important' },
       })

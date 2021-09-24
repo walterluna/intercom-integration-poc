@@ -5,12 +5,12 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Post()
-  postEvent(): void {
+  @Post('/events')
+  postEvent(): any {
     return this.appService.postEvent();
   }
 
-  @Post()
+  @Post('/messages')
   sendMessage(): void {
     return this.appService.sendMessage();
   }
