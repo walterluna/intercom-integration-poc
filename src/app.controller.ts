@@ -9,4 +9,9 @@ export class AppController {
   postEvent(): void {
     return this.appService.postEvent();
   }
+
+  @Post()
+  sendMessage(): void {
+    return this.appService.sendMessage();
+  }
 }

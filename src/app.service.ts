@@ -8,10 +8,10 @@ export class AppService {
   postEvent(): void {
     this.client.events
       .create({
-        event_name: 'Foo',
+        event_name: 'Test event',
         created_at: new Date().getTime(),
-        user_id: 'bar',
-        metadata: { type: 'baz' },
+        user_id: '248',
+        metadata: { type: 'foo', content: 'Something important' },
       })
       .then((resp) => console.log(resp))
       .catch((err) => console.error(err));
@@ -20,14 +20,16 @@ export class AppService {
   sendMessage(): void {
     this.client.messages.create({
       message_type: 'email',
-      subject: 'This is the subject',
+      template: 'plain',
+      subject: 'Testing intercom sdk integration',
+      body: '<h1>Hello world</h1>',
       from: {
         type: 'admin',
-        id: 'admin-id',
+        id: '163',
       },
       to: {
         type: 'user',
-        id: 'receiver-id',
+        id: '248',
       },
     });
   }
